@@ -239,7 +239,9 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
     Parameters
     ----------
     edges: ndarray, int32, shape=(n_edges, 2)
-        Rows correspond to edges in graph, given as vertex indices.
+        Rows correspond to edges in graph, given as vertex indices. The indices
+        in the first column should always be smaller than corresponding indices
+        from the second column.
     edge_weights: ndarray, int32 or float64, shape=(n_edges)
         Weights for each edge, listed in the same order as edges.
     unary_cost: ndarray, int32 or float64, shape=(n_vertices, n_labels)
@@ -251,6 +253,11 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
     algorithm: string, `expansion` or `swap`, default=expansion
         Whether to perform alpha-expansion or alpha-beta-swaps.
     init_labels: ndarray, int32, shape=(n_vertices). Initial labels.
+
+    Return
+    ------
+    labels: ndarray, int32, shape=(n_vertices) the resulting list of labels
+        after optimization.
 
     Note all the node indices start from 0.
     """
