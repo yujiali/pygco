@@ -232,7 +232,7 @@ class gco(object):
 
 
 def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost, 
-        n_iter=-1, algorithm='expansion'):
+        n_iter=-1, algorithm='expansion', init_labels=None):
     """
     Apply multi-label graph cuts to arbitrary graph given by `edges`.
 
@@ -250,6 +250,7 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
         Number of iterations. n_iter=-1 means run the algorithm until convergence.
     algorithm: string, `expansion` or `swap`, default=expansion
         Whether to perform alpha-expansion or alpha-beta-swaps.
+    init_labels: ndarray, int32, shape=(n_vertices). Initial labels.
 
     Note all the node indices start from 0.
     """
@@ -276,6 +277,11 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
     gc.setDataCost(unary_cost / down_weight_factor)
     gc.setAllNeighbors(edges[:,0], edges[:,1], edge_weights / down_weight_factor)
     gc.setSmoothCost(pairwise_cost)
+
+    # initialize labels
+    if init_labels is not None:
+        for i in range(n_sites):
+            gc.initLabelAtSite(i, init_labels[i])
 
     if algorithm == 'expansion':
         gc.expansion(n_iter)
