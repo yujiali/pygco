@@ -1,9 +1,9 @@
 import numpy as np
 import ctypes as ct
+import os
 
-# change this to your own path
-# _CGCO_LIB_PATH = '/h/53/yujiali/Desktop/Research/Toolboxes/pygco'
-_CGCO_LIB_PATH = '/Users/yujiali/Documents/Research/PythonToolbox/_pygco_'
+# or change this to your own path that contains libcgco.so
+_CGCO_LIB_PATH = os.path.dirname(os.path.realpath(__file__))
 _CGCO_LIB_NAME = 'libcgco.so'
 
 # change the type definition depending on your machine and the compiled GCO library

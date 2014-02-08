@@ -1,3 +1,14 @@
 pygco package
 
 This is a python wrapper for gco-v3.0 package (http://vision.csd.uwo.ca/code/).
+
+It contains a copy of the gco-v3.0 package.
+
+This wrapper is composed of two parts, a C wrapper and a python wrapper.
+
+To use this package, you should first compile the C wrapper. First compile gco-v3.0 using "make". Then compile test_wrapper using "make test_wrapper". Then run the C test code "./test_wrapper". Now you have the C wrapper ready.
+
+Next test the python wrapper using "python test.py", if it works fine you are ready to use pygco.
+
+To include pygco in your code, simply import pygco module. See the documentation inside code for more details.
+
