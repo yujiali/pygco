@@ -2,7 +2,10 @@ pygco package
 
 This is a python wrapper for gco-v3.0 package (http://vision.csd.uwo.ca/code/).
 
-It contains a copy of the gco-v3.0 package.
+It contains a copy of the gco-v3.0 package.  Some of the design were borrowed from the gco_python (https://github.com/amueller/gco_python) package. However, compared to gco_python:
+* This package does not depend on Cython. Instead it is implemented using the ctypes library and a C wrapper of the C++ code.
+* This package is an almost complete wrapper for gco-v3.0, which supports more direct low level control over GCoptimization objects.
+* This package supports graphs with edges weighted differently.
 
 This wrapper is composed of two parts, a C wrapper and a python wrapper.
 
