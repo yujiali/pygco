@@ -232,7 +232,7 @@ class gco(object):
 
 
 def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost, 
-        n_iter=-1, algorithm='expansion', init_labels=None):
+        n_iter=-1, algorithm='expansion', init_labels=None, down_weight_factor=None):
     """
     Apply multi-label graph cuts to arbitrary graph given by `edges`.
 
@@ -253,6 +253,9 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
     algorithm: string, `expansion` or `swap`, default=expansion
         Whether to perform alpha-expansion or alpha-beta-swaps.
     init_labels: ndarray, int32, shape=(n_vertices). Initial labels.
+    down_weight_factor: float or None. Used to scale down the energy terms, so
+        that they won't overflow once converted to integers. Default to None,
+        where this factor is set automatically.
 
     Return
     ------
@@ -276,8 +279,9 @@ def cut_general_graph(edges, edge_weights, unary_cost, pairwise_cost,
 
     n_sites, n_labels = unary_cost.shape
 
-    down_weight_factor = max(np.abs(unary_cost).max(), 
-            np.abs(edge_weights).max() * pairwise_cost.max()) + _SMALL_CONSTANT
+    if down_weight_factor == None:
+        down_weight_factor = max(np.abs(unary_cost).max(), 
+                np.abs(edge_weights).max() * pairwise_cost.max()) + _SMALL_CONSTANT
 
     gc = gco()
     gc.createGeneralGraph(n_sites, n_labels, energy_is_float)
