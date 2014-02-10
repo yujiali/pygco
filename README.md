@@ -1,4 +1,4 @@
-pygco package
+## pygco package
 
 This is a python wrapper for gco-v3.0 package (http://vision.csd.uwo.ca/code/).
 
