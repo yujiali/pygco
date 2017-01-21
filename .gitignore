@@ -1,0 +1,5 @@
+*.zip
+*.pyc
+*.o
+*.so
+test_wrapper

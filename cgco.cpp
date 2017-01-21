@@ -17,10 +17,10 @@
  *
  */
 
-#include "GCoptimization.h"
 #include <map>
 #include <stdio.h>
 #include <stdlib.h>
+#include "gco_source/GCoptimization.h"
 
 typedef GCoptimization::LabelID LabelID;
 typedef GCoptimization::SiteID SiteID;

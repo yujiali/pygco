@@ -1,0 +1,40 @@
+# vim ft=yaml
+
+# After changing this file, check it on:
+#   http://yaml-online-parser.appspot.com/
+
+# See doc/travis_notes.txt for some guidelines
+
+language:
+  - cpp
+  - python
+
+sudo: true
+
+python:
+  - 2.7
+  - 3.4
+
+# See http://docs.travis-ci.com/user/caching/#pip-cache
+cache: pip
+
+compiler: g++
+
+before_install:
+#  - mkdir gco_source
+  - pip install --upgrade pip
+
+install:
+  - pip install -r requirements.txt
+  - pip install nose coverage
+  - make download
+  - make all
+  - make test_wrapper
+
+script:
+  - ls *.so
+#  - ./test_wrapper
+  - nosetests --with-coverage --cover-package=pygco
+
+after_success:
+  - coverage report

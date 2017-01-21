@@ -1,7 +1,7 @@
 #ifndef __CGCO_H__
 #define __CGCO_H__
 
-#include "GCoptimization.h"
+#include "gco_source/GCoptimization.h"
 
 typedef GCoptimization::LabelID LabelID;
 typedef GCoptimization::SiteID SiteID;
