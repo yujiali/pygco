@@ -4,7 +4,10 @@ import os
 
 # or change this to your own path that contains libcgco.so
 _CGCO_LIB_PATH = os.path.dirname(os.path.realpath(__file__))
-_CGCO_LIB_NAME = 'libcgco.so'
+if os.name != 'nt':
+    _CGCO_LIB_NAME = 'libcgco.so'
+else:
+	_CGCO_LIB_NAME = 'libcgco.dll'
 
 # change the type definition depending on your machine and the compiled GCO library
 _handle_type = ct.c_int
