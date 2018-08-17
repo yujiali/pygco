@@ -3,3 +3,9 @@
 *.o
 *.so
 test_wrapper
+test_wrapper.lib
+libcgco.dll
+libcgco.lib
+*.obj
+*.exp
+*.exe

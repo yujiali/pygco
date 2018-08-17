@@ -162,9 +162,10 @@ def test_binary():
     fig.tight_layout(), fig.savefig('./images/binary_labels.png')
 
 
-# if __name__ == "__main__":
-#     test_gc()
-#     test_integer()
-#     test_float()
-#     test_grid()
-#     test_binary()
+if __name__ == "__main__":
+    test_gc()
+    test_integer()
+    test_float()
+    test_grid()
+    test_binary()
+    print('Passed all tests.')

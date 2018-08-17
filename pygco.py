@@ -11,7 +11,7 @@ _PAIRWISE_FLOAT_PRECISION = 1000
 _SMOOTH_COST_PRECISION = 100
 
 _int_types = [np.int, np.intc, np.int32, np.int64, np.longlong]
-_float_types = [np.float, np.float32, np.float64, np.float128]
+_float_types = [np.float, np.float32, np.float64, np.longdouble]
 
 _SMALL_CONSTANT = 1e-10
 
